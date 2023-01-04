@@ -7,10 +7,8 @@ path = askdirectory(title='Select Folder') # shows dialog box and return the pat
 
 for filename in os.listdir(path):
     f = os.path.join(path, filename)
-    # checking if it is a file
-    if os.path.isfile(f):
-        if ".DS_Store" in f:
-            continue
+    # checking if it is a ISO file
+    if os.path.isfile(f) and ".iso" in f:
         folder_name = ''.join(filename.rpartition('.')[:-1])[:-1]
         file_name = ''.join(f.rpartition('/')[-1])
         new_folder_path = path + "/" + folder_name
